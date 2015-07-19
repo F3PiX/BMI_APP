@@ -1,5 +1,8 @@
 == README
 
+A few weeks into Obj-C, I made a BMI app. I want to know if I am able to build one in Rails
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
