@@ -1,0 +1,13 @@
+<h1>Person#new</h1>
+<p>Find me in app/views/person/new.html.erb</p>
+
+
+<%= form_for @person do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br />
+
+    <%= f.label :length %>:
+    <%= f.text_field :length %><br />
+
+    <%= f.submit %>
+<% end %>

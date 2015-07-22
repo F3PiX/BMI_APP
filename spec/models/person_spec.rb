@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Person, type: :model do
+describe Person, type: :model do
+  subject { FactoryGirl.create(:person) }
 
-  describe 'creates a person' do
-    person = Person.create
-    it {expect(Person.count).to be > 0}
-
+  describe 'creates a people' do
+    it { is_expected.not_to be_new_record }
+    it { is_expected.to be_valid }
   end
 end
