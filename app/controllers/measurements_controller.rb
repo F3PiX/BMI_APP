@@ -13,14 +13,19 @@ class MeasurementsController < ApplicationController
 
   # POST /measurements
   def create
-  @measurement = Measurement.create(measurement_params)
-  #notice laten zien
-  redirect_to @measurement, notice: "Alweer een stap in de goede richting"
+    #create pattern w feedback on failing save (eg by validation)
+    @measurement = Measurement.new(measurement_params)
+    if @measurement.save
+        #TODO notice laten zien
+        redirect_to @measurement, notice: "Alweer een stap in de goede richting"
+      else
+        render :new
+    end
   end
 
   def bmi_calc(weging)
     # input: weight from @measurement , height from @person
-    # returns bmi-number
+    # returns bmi-number with 1 dec
     #@person.measurement_today.weight
     #TODO get Person.length for current user
     # bmi = weight (k) / length^2 (m)
