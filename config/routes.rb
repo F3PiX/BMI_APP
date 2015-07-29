@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'measurements/new'
-
-  get 'measurements/bmi_calc'
-
+  #NOTE to self: a generated controller adds GET routes here;
+  # the resources method generates all, including those routes, so delete them here.
   resources :people
   resources :measurements
 
