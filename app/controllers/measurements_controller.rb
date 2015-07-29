@@ -1,9 +1,10 @@
 class MeasurementsController < ApplicationController
-  before_action :bmi_calc, only: :show
+  #before_action :bmi_calc, only: :show
+
   # GET /measurements/1
-  # hier komt hij van create binnen, nu moet ik bmi_calc laten zien in view.
   def show
-    #missing template view
+    @your_weight = Measurement.find(params[:id]).weight
+    bmi_calc(@your_weight)
   end
 
   # GET /measurements/new
@@ -14,21 +15,17 @@ class MeasurementsController < ApplicationController
   # POST /measurements
   def create
   @measurement = Measurement.create(measurement_params)
-
-  # redirect_to view with bmi_calc; temporarily:
-  # redirect_to '/'
     redirect_to @measurement, notice: "Alweer een stap in de goede richting"
   end
 
-  def bmi_calc
+  def bmi_calc(weging)
+    weight = weging
     # input: weight from @measurement , height from @person
     # returns bmi-number rounded to 0 dec
     #@person.measurement_today.weight#TODO get Person.length for current user
-    @bmi_calc = 25 # bmi = weight (k) / length^2 (m)
-    # @bmi_calc = @measurement.weight / (1.90)**2
-    # @bmi_calc.round(0)
-    # redirect_to :show
-
+    #@bmi_calc = 25 # bmi = weight (k) / length^2 (m)
+    @bmi_calc = @your_weight / (1.96)**2
+    @bmi_calc.round(1)
   end
 
 
