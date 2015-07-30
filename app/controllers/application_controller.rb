@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def welcome
-    render text: "Hello there!"
+    render text: "So, you wanna know your bmi...."
   end
-
-
 end
