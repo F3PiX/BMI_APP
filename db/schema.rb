@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722222014) do
+ActiveRecord::Schema.define(version: 20150730121109) do
 
   create_table "measurements", force: :cascade do |t|
     t.datetime "date"
@@ -19,13 +19,19 @@ ActiveRecord::Schema.define(version: 20150722222014) do
     t.integer  "bmi_calc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "person_id"
   end
+
+  add_index "measurements", ["person_id"], name: "index_measurements_on_person_id"
 
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.float    "length"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "measurement_id"
   end
+
+  add_index "people", ["measurement_id"], name: "index_people_on_measurement_id"
 
 end
