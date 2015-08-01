@@ -2,11 +2,11 @@ module BmiCalculationsHelper
 
   # input: current_user
   # TODO changed argument to user instead of weight
-  # Now, people#show is decluttered
+  # Now, people#show is more SOLID
   # but how do I history now?
 
   # uses weight from latest measurement
-  # uses person's
+  # uses person's height
   def bmi_calc(current_user)
     # bmi = weight (k) / length^2 (m)
     weight = current_user.measurements.last.weight
@@ -18,9 +18,8 @@ end
 
 
 
-# First, tt was like this
+# First, it was like this
 
-# #if it works it goes into a module
 # def bmi_calc(weging, @current_user)
 #   # input: weight from @measurement , height from @person
 #   #TODO get Person.length for current user
