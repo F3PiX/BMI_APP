@@ -1,0 +1,15 @@
+
+<h1>Hello <%= @current_user.name %>!</h1>
+<p>Your last measured bmi is: </p>
+<p><%= @latest_bmi %> <p/>
+
+
+
+<p>Is this a good of a bad thing?
+This is green or red </p>
+
+Your history is </p>
+<p><% @bmi_history.each do |m| %></p>
+    <><%= m.weight %> kg (<%= m.date.strftime("%d %b") %>)</p>
+
+<% end %>
