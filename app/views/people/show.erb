@@ -1,23 +1,30 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <h1>Hello <%= @current_user.name %>!</h1>
-        <h3> Your BMI is:</h3>
-          <h2 class="bg-danger"><%= @latest_bmi %></h2>
-            <h4>Is this a good or a bad thing?
-              <p>       </p>
-            <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> red is an unhealthy bmi </p>
-            </h4>
+        <div class="container">
+          <div class="col-md-12">
+          <h2> Your BMI is:</h2>
+          <h3 class="bg-danger"><%= @latest_bmi %></h3>
+              <div class="col-md-2">
+                <p>Is this a good or a bad thing?</p>
+                <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
+                </p>
+              </div>
+            <%= link_to "Add your weight here", new_measurement_path(@person_id) %>
+          </div>
+        </div>
+
     <p>Your history is </p>
     <p><% @bmi_history.each do |m| %></p>
           <><%= m.weight %> kg (<%= m.date.strftime("%d %b") %>)</p>
       <% end %>
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
-  </div>
 </div>
 
-<div class="container">
+
   <!-- Example row of columns -->
   <!--
+ <div class="container">
   <div class="row">
     <div class="col-md-4">
       <h2>Heading</h2>
@@ -37,11 +44,12 @@
   </div>
   -->
   <hr>
-
+  <!--MAUD: footer
   <footer>
     <p>&copy; Maud made this for Summer of Code 2015</p>
-  </footer>
-</div> <!-- /container -->
+  </footer> MAud-->
+ <!-- /container -->
+<!-- </div> -->
 
 
 

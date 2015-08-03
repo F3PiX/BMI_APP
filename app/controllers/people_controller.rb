@@ -19,7 +19,8 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = Person.new
+    #@person = Person.new
+    @person = Person.find_by(params[:name]) || Person.new
   end
 
   #POST /people
