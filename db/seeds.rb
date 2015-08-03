@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Person.create(name: "Hans de Vries", length: 1.98)
+Person.create(name: "Mozes Kriebel", length: 1.80)
+Person.create(name: "Lois Lane", length: 1.75)
+
+Person.all do |p|
+  p.measurements.weight = 90
+  p.measurements.date = Date.today
+end
+

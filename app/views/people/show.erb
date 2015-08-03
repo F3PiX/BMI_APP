@@ -1,15 +1,55 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <h1>Hello <%= @current_user.name %>!</h1>
+        <div class="container">
+          <div class="col-md-12">
+          <h2> Your BMI is:</h2>
+          <h3 class="bg-danger"><%= @latest_bmi %></h3>
+              <div class="col-md-2">
+                <p>Is this a good or a bad thing?</p>
+                <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
+                </p>
+              </div>
+            <%= link_to "Add your weight here", new_measurement_path(@person_id) %>
+          </div>
+        </div>
 
-<h1>Hello <%= @current_user.name %>!</h1>
-<p>Your last measured bmi is: </p>
-<p><%= @latest_bmi %> <p/>
+    <p>Your history is </p>
+    <p><% @bmi_history.each do |m| %></p>
+          <><%= m.weight %> kg (<%= m.date.strftime("%d %b") %>)</p>
+      <% end %>
+    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+</div>
+
+
+  <!-- Example row of columns -->
+  <!--
+ <div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+  -->
+  <hr>
+  <!--MAUD: footer
+  <footer>
+    <p>&copy; Maud made this for Summer of Code 2015</p>
+  </footer> MAud-->
+ <!-- /container -->
+<!-- </div> -->
 
 
 
-<p>Is this a good of a bad thing?
-This is green or red </p>
-
-Your history is </p>
-<p><% @bmi_history.each do |m| %></p>
-    <><%= m.weight %> kg (<%= m.date.strftime("%d %b") %>)</p>
-
-<% end %>
