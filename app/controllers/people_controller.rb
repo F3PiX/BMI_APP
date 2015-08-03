@@ -13,8 +13,9 @@ class PeopleController < ApplicationController
     #@person = Person.find(params[:id])
     @current_user = Person.find_by_name("Mozes Kriebel")
     @latest_bmi = bmi_calc(@current_user)
-    #history should come from elsewhere (helper?) as well
-    @bmi_history = @current_user.measurements.all
+    #history should come from elsewhere (helper?)
+    #todo: iterate over bmi_history to calc bmi's per measurement
+    @bmi_history = @current_user.measurements
   end
 
   # GET /people/new
