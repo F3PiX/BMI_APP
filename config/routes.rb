@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'application#welcome'
   #NOTE to self: a generated controller adds GET routes here;
   # the resources method generates all, including those routes, so delete them here.
   resources :people
@@ -6,9 +8,6 @@ Rails.application.routes.draw do
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-   root 'application#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

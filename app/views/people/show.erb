@@ -14,10 +14,8 @@
           </div>
         </div>
 
-    <p>Your history is </p>
-    <p><% @bmi_history.each do |m| %></p>
-          <><%= m.weight %> kg (<%= m.date.strftime("%d %b") %>)</p>
-      <% end %>
+  <%= render 'layouts/measurementstable' %>
+
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
 </div>
 
@@ -50,6 +48,3 @@
   </footer> MAud-->
  <!-- /container -->
 <!-- </div> -->
-
-
-
