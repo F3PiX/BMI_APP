@@ -8,14 +8,18 @@
         <h2>Hello <%= @current_user.name %>!</h2>
         <hr>
         <h4> Your BMI is</h4>
+
       </div>
         <hr>
         </div>
+
             <div class="well">
+
               <h2 class="bg-danger"><%= @latest_bmi %></h2>
             </div> <!-- well -->
 
-      </div> <!-- span4 -->
+         </div> <!-- span4 -->
+
 
     </div> <!-- row -->
 <%= link_to "Add your weight here", new_person_measurement_path(@current_user.id) %>
@@ -38,6 +42,7 @@
   <%= render 'layouts/measurementstable' %>
                </div>
               </div>
+            </div>
 
 
     <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
