@@ -10,7 +10,7 @@
                 <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
                 </p>
               </div>
-            <%= link_to "Add your weight here", new_measurement_path(@person_id) %>
+            <%= link_to "Add your weight here", new_person_measurement_path(@current_user.id) %>
           </div>
         </div>
 

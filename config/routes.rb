@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'application#welcome'
   #NOTE to self: a generated controller adds GET routes here;
   # the resources method generates all, including those routes, so delete them here.
-  resources :people
-  resources :measurements
+  resources :people do
+    resources :measurements
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

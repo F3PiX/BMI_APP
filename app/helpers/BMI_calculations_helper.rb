@@ -9,7 +9,8 @@ module BmiCalculationsHelper
   # uses person's height
   def bmi_calc(current_user)
     # bmi = weight (k) / length^2 (m)
-    weight = current_user.measurements.last.weight
+    latest = current_user.measurements.first #because of ordering in model
+    weight = latest.weight
     height = current_user.length
     bmi_calc = weight / (height**2)
     bmi_calc.round(1)
