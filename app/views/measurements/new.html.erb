@@ -1,8 +1,6 @@
-<h1>Measurements#new</h1>
-<p>Find me in app/views/measurements/new.html.erb</p>
+<h1>Add your weight</h1>
 
-
-<%= form_for @measurement do |f| %>
+<%= form_for ([@current_user, @current_user.measurements.build]) do | f | %>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <%= f.label :weight%>:

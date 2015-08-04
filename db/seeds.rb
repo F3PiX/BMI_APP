@@ -14,4 +14,3 @@ Person.all do |p|
   p.measurements.weight = 90
   p.measurements.date = Date.today
 end
-
