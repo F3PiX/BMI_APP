@@ -13,7 +13,7 @@
             <tr>
               <td><%= m.weight %> kg </td>
               <td><%= m.date.strftime("%d %b") %></td>
-              <td><%# bmi_calc(m) %></td>
+              <td><%= bmi_calc(m) %></td>
         <% end %>
     <% end %>
   </table>

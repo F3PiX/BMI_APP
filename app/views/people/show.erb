@@ -4,7 +4,11 @@
         <div class="container">
           <div class="col-md-12">
           <h2> Your BMI is:</h2>
-          <h3 class="bg-danger"><%= @latest_bmi %></h3>
+            <% if @latest_bmi < 20 || @latest_bmi >25 %>
+                <h3 class="bg-danger"><%= @latest_bmi %></h3>
+            <% else %>
+                 <h3 class="bg-success"><%= @latest_bmi %></h3>
+            <% end %>
               <div class="col-md-2">
                 <p>Is this a good or a bad thing?</p>
                 <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
