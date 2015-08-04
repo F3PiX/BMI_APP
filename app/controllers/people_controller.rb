@@ -10,9 +10,10 @@ class PeopleController < ApplicationController
 
   # GET /people/1
   def show
-    #@person = Person.find(params[:id])
-    @current_user = Person.find_by_name("Mozes Kriebel")
-    @latest_bmi = bmi_calc(@current_user)
+    @current_user = Person.find(params[:id])
+    #@current_user = Person.find_by_name("Mozes Kriebel")
+
+    @latest_bmi = bmi_calc(@current_user) if @current_user.measurements.last
     #history should come from elsewhere (helper?)
     #todo: iterate over bmi_history to calc bmi's per measurement
     @bmi_history = @current_user.measurements
