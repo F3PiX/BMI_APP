@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
   # @person = @measurements.person
   #   #@measurement.person = @person
   #   @current_user = @person
-    piep = Person.find(params[:id]) || Measurement.find(params[:person_id])
+    #piep = Person.find(params[:id]) || Measurement.find(params[:person_id])
     #person = Person.find(params[:id]) || Measurement.find(params[:person_id])
     #@current_user ||= person
-    @current_user = piep
+    #@current_user = piep
 
-    #@current_user ||= Person.find(params[:id])
-    #@current_user ||= Person.find(params[:person_id])
+    @current_user ||= Person.find(params[:id])
+    @current_user ||= Person.find(params[:person_id])
         #||= Person.find(params[:id])
     #@current_user ||= Person.find_by(id:[:person])
   end
