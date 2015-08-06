@@ -1,36 +1,21 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        </div>
-      <div class="col-md-4">
-        <h2>Hello <%= @current_user.name %>!</h2>
-        <hr>
-        <h4> Your BMI is</h4>
-
-      </div>
-        <hr>
-        </div>
-
-            <div class="well">
-
-              <h2 class="bg-danger"><%= @latest_bmi %></h2>
-            </div> <!-- well -->
-
-         </div> <!-- span4 -->
-
-
-    </div> <!-- row -->
-<%= link_to "Add your weight here", new_person_measurement_path(@current_user.id) %>
-  </div> <!-- container -->
+    <h1>Hello <%= current_user.name %>!</h1>
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
+          <div class="col-md-12">
+          <h2> Your BMI is:</h2>
+            <% if Measurement.bmi_calc(current_measurement) < 20 || Measurement.bmi_calc(current_measurement) >25 %>
+                <h3 class="bg-danger"><%= Measurement.bmi_calc(current_measurement) %></h3>
+            <% else %>
+                 <h3 class="bg-success"><%= Measurement.bmi_calc(current_measurement) %></h3>
+            <% end %>
+              <div class="col-md-2">
                 <p>Is this a good or a bad thing?</p>
                 <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
                 </p>
-            </div>
+              </div>
+            <%= link_to "Add your weight here", new_person_measurement_path(current_user.id) %>
+          </div>
         </div>
 
           <div class="container">
