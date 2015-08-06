@@ -1,6 +1,10 @@
-<h1>My people</h1>
+<h1>Hi!</h1>
+<h2>Who are you?</h2>
 <% @people.each do |p| %>
-    <p><%= p.name %></p>
+    <p><%= link_to p.name, person_path(p) %></p>
+
 <% end %>
 
-<%= link_to 'New person', new_person_path %>
+<div class="container">
+<%= link_to 'I am new here', new_person_path, class: 'btn btn-success' %>
+</div>

@@ -1,6 +1,6 @@
 <h1>Add your weight</h1>
 
-<%= form_for ([@current_user, @current_user.measurements.build]) do | f | %>
+<%= form_for ([current_user, current_user.measurements.build]) do | f | %>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <%= f.label :weight%>:
