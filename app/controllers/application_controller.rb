@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_measurement
-    #first is reverse of order: :desc 's last. Must be a better way Being solved in next commit
+    #first is reverse of order: :desc 's last. NB Will be solved in next Pull Request
     @current_measurement = current_user.measurements.first
   end
 
