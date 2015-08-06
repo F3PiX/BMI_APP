@@ -1,20 +1,19 @@
 <div>
   <p class="text-center">Your history is </p>
-
   <table class="table table-striped table-bordered table-condensed">
     <% if current_user.measurements.any? %>
         <thead>
         <tr>
-          <th class="col-md-2">Weight</th>
-          <th class="col-md-1">Date</th>
-          <th class="col-md-1">BMI</th>
+          <th class="col-md-1 text-center">Weight</th>
+          <th class="col-md-1 text-center">Date</th>
+          <th class="col-md-1 text-center">BMI</th>
         </tr>
         </thead>
         <% current_user.measurements.each do | m | %>
             <tr>
               <td><%= m.weight %> kg </td>
               <td><%= m.date.strftime("%d %b") %></td>
-              <td><%= Measurement.bmi_calc(m) %></td>
+              <td><%= m.bmi_calc %></td>
         <% end %>
     <% end %>
   </table>
