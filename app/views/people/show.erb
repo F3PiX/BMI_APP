@@ -1,65 +1,40 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <h1>Hello <%= current_user.name %>!</h1>
   <p></p><%= current_user.measurements.latest.weight %> kg </p>
+    <!--<h1>Hello <%= current_user.name %>!</h1> -->
         <div class="container">
-          <div class="col-md-12">
-          <h2> Your BMI is:</h2>
-            <% if Measurement.bmi_calc(current_measurement) < 20 || Measurement.bmi_calc(current_measurement) >25 %>
-                <h3 class="bg-danger"><%= Measurement.bmi_calc(current_measurement) %></h3>
-            <% else %>
-                 <h3 class="bg-success"><%= Measurement.bmi_calc(current_measurement) %></h3>
-            <% end %>
-              <div class="col-md-2">
+          <div class="row" ></div>
+            <div class="col-md-4"></div>
+          <h2>Hello <%= current_user.name %>!</h2>
+          <h4> Your BMI is:</h4>
+
+                <div class="well">
+                    <% if current_measurement.bmi_calc < 20 || current_measurement.bmi_calc > 25 %>
+                        <h3 class="bg-danger"><%= current_measurement.bmi_calc %></h3>
+                    <% else %>
+                        <h3 class="bg-success"><%= current_measurement.bmi_calc %></h3>
+                    <% end %>
+                </div> <!-- well -->
+        </div>
+  </div>
+            <div class="col-md-3">
                 <p>Is this a good or a bad thing?</p>
                 <p class="bg-success">Green is a healthy bmi, </p> <p class="bg-danger"> Red is an unhealthy bmi </p>
                 </p>
-              </div>
-            <%= link_to "Add your weight here", new_person_measurement_path(current_user.id) %>
-          </div>
-        </div>
+            </div>
+<div class="col-md-6">
+<%= link_to "Add your weight here", new_person_measurement_path(current_user.id), class: 'btn btn-warning' %>
+</div>
 
-          <div class="container">
+    <div class="container">
             <div class="row">
               <div class="col-md-4">
               </div>
-              <div class="col-md-4">
+              <div class="col-md-6">
 
   <%= render 'layouts/measurementstable' %>
                </div>
               </div>
             </div>
-
-
-    <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
 </div>
-
-
-  <!-- Example row of columns -->
-  <!--
- <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-    </div>
-  </div>
-  -->
   <hr>
-  <!--MAUD: footer
-  <footer>
-    <p>&copy; Maud made this for Summer of Code 2015</p>
-  </footer> MAud-->
- <!-- /container -->
-<!-- </div> -->
