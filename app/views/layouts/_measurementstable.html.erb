@@ -10,7 +10,7 @@
           <th class="col-md-1">BMI</th>
         </tr>
         </thead>
-        <% current_user.measurements.each do | m | %>
+        <% current_user.measurements.descending.each do | m | %>
             <tr>
               <td><%= m.weight %> kg </td>
               <td><%= m.date.strftime("%d %b") %></td>

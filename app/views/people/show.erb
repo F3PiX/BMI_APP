@@ -1,6 +1,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <h1>Hello <%= current_user.name %>!</h1>
+  <p></p><%= current_user.measurements.latest.weight %> kg </p>
         <div class="container">
           <div class="col-md-12">
           <h2> Your BMI is:</h2>
