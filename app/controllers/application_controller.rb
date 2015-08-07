@@ -1,15 +1,10 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-  helper_method :current_user, :user_measurements, :latest_measurement
+  helper_method :current_user, :latest_measurement
 
   def current_user
     @current_user = Person.find(params[:person_id] || params[:id])
-  end
-
-  #I suppose this method is not very useful.
-  def user_measurements
-    @user_measurements ||= current_user.measurements
   end
 
   #Memo 1: I added it here, but maybe it needs to be a class method in Measurement? See comments PR #10
