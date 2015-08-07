@@ -3,18 +3,16 @@
     <div class="row" ></div>
     <div class="col-md-4"></div>
         <h2>Hello <%= current_user.name %>!</h2>
-            <% if current_user.measurements.any? %>
-                <p>Your weight is <%= current_user.measurements.latest.weight %> kg </p>
+            <% if user_measurements.any? %>
+                <p>Your weight is <%= user_measurements[-1].weight %> kg </p>
 
         <p> Your BMI is</p>
-    <% end %>
     <div class="col-md-4"></div>
             <div class="well col-md-4 col-md-4">
-              <% if current_user.measurements.any? %>
-                    <% if current_measurement.bmi_calc < 20 || current_measurement.bmi_calc > 25 %>
-                        <h3 class="bg-danger"><%= current_measurement.bmi_calc %></h3>
+                    <% if user_measurements[-1].bmi_calc < 20 || user_measurements[-1].bmi_calc > 25 %>
+                        <h3 class="bg-danger"><%= user_measurements.last.bmi_calc %></h3>
                     <% else %>
-                        <h3 class="bg-success"><%= current_measurement.bmi_calc %></h3>
+                        <h3 class="bg-success"><%= user_measurements.last.bmi_calc %></h3>
                     <% end %>
               <% end %>
             </div> <!-- well -->

@@ -1,7 +1,6 @@
 class Measurement < ActiveRecord::Base
   belongs_to :person
   scope :descending, -> { order(date: :desc) }
-  scope :latest, -> { order(date: :asc).last }
 
   validates :date, presence: true #default: Date.today, automatically set by date_helper thingy in view
   validates :weight, presence: true
