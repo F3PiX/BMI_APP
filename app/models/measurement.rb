@@ -10,11 +10,8 @@ class Measurement < ActiveRecord::Base
 
   #input: measurement
   def bmi_calc
-    #first = last, because of ordering in model
-    weight = self.weight
-    height = self.person.length
+    height = person.length
     bmi_calc = weight / (height**2)
     bmi_calc.round(1)
   end
-
 end

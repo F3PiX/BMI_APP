@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_measurement
-    #first is reverse of order: :desc 's last. NB Will be solved in next Pull Request
-    @current_measurement = current_user.measurements.last
-  end
-
-  def welcome
-    render text: "So, you wanna know your bmi...."
+    @current_measurement = current_user.measurements.first
   end
 end
