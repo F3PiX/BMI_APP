@@ -2,7 +2,11 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @people = Person.all
+    if params[:search]
+      @people = Person.search(params[:search])
+    else
+      @people = Person.all
+    end
   end
 
   # GET /people/1
