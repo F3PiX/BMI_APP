@@ -7,7 +7,7 @@ class MeasurementsController < ApplicationController
 
   # POST people/1/measurements
   def create
-  @measurement = current_user.measurements.create!(measurement_params)
+    @measurement = current_user.measurements.create!(measurement_params)
     redirect_to person_path(current_user)
   end
 

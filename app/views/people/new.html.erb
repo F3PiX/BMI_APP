@@ -4,13 +4,12 @@
 
 <%= form_for @person do |f| %>
     <%= f.label :name, "What's your name?" %>
-
     <%= f.text_field :name, placeholder: "Pietje Precies" %><br />
       <p></p>
-    <%= f.label :length, "What is your height" %>
+    <%= f.label :length, "What is your height?" %>
     <%= f.text_field :length, placeholder: "1.75" %><br />
       <p></p>
     <%= f.submit "That's all", class: 'btn btn-warning' %>
 <% end %>
-
+  <%= link_to "I don't want this", people_path, {class: 'btn btn-default'} %>
 </div>
