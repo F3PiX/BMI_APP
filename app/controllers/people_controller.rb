@@ -21,6 +21,7 @@ class PeopleController < ApplicationController
   #POST /people
   def create
     @person = Person.create(person_params)
+    redirect_to new_person_measurement_path([@person, @measurement])
   end
 
 
