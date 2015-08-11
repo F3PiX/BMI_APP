@@ -1,5 +1,6 @@
-require 'rails_helper'
-# MEMo: temp out, while learning writing tests
+#require 'rails_helper'
+
+# MEMo: temp out, while learning writing tests; written w Thijs
 # RSpec.describe MeasurementsController, type: :controller do
 #
 #   describe "GET #new" do
