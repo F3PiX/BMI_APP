@@ -6,20 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
-  <!-- Breadcrumbs to be added in Lesson 2, after completing nested routing
-  <ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Library</a></li>
-    <li class="active">Data</li>
-  </ol> -->
 </head>
 
-<body>
-<%= render 'layouts/navbar' %>
-    <div class="text-center">
-      <%= yield %>
-    </div>
-</body>
-</html>
+    <body>
+        <%= render 'layouts/navbar' %>
+        <div class="text-center">
+            <%= yield %>
+        </div>
+    </body>
 
-<%= render 'layouts/footer' %>
+
+    <%= render 'layouts/footer' %>
+
+</html>

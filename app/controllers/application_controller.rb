@@ -1,34 +1,17 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-  helper_method :current_user, :current_measurement
+  helper_method :current_user, :latest_measurement
 
   def current_user
-    #temp
-  #   @person = Person.find(params[:id])
-  # @person = @measurements.person
-  #   #@measurement.person = @person
-  #   @current_user = @person
-    piep = Person.find(params[:id]) || Measurement.find(params[:person_id])
-    #person = Person.find(params[:id]) || Measurement.find(params[:person_id])
-    #@current_user ||= person
-    @current_user = piep
-
-    #@current_user ||= Person.find(params[:id])
-    #@current_user ||= Person.find(params[:person_id])
-        #||= Person.find(params[:id])
-    #@current_user ||= Person.find_by(id:[:person])
+    @current_user = Person.find(params[:person_id] || params[:id])
   end
 
-  def current_measurement
-    #first is reverse of order: :desc 's last. Must be a better way
-    @current_measurement = current_user.measurements.first
-    #Will this solve my def current_user id problem? NOOOOO
-    #@current_measurement.person.id = current_user.id
-
+  #Memo 1: I added it here, but maybe it needs to be a class method in Measurement? See comments PR #10
+  #Memo 2: I know it is only used in 1 controller, but I have plans for this one...
+  # Should I move this to the controller until the plans ^ are implemented?
+  def latest_measurement
+    @latest_measurement ||= current_user.measurements[-1]
   end
 
-  def welcome
-    render text: "So, you wanna know your bmi...."
-  end
 end

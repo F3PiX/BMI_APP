@@ -1,26 +1,22 @@
 class PeopleController < ApplicationController
-   #before_action :current_user , only: [:show, :new]
 
   # GET /people
   def index
-    @people = Person.all
+    if params[:search]
+      @people = Person.search(params[:search])
+    else
+      @people = Person.all
+    end
   end
 
   # GET /people/1
   def show
-    #@current_measurement = @current_user.current_measurement
-    #@latest_bmi = @current_measurement.bmi
-
-    #@current_user = Person.find(params[:id])
-    #if @current_measurement
-      #@current_user = Person.find_by_name("Mozes Kriebel")
-     # @current_measurement = current_user.measurements.first
-     # @latest_bmi = Measurement.bmi_calc(@current_measurement) #if @current_user.measurements.last
   end
 
   # GET /people/new
   def new
     @person = Person.new
+    #NOTE Maybe I need to do it like this when I implement search feature
     #@person = Person.find_by(params[:name]) || Person.new
   end
 
@@ -36,10 +32,6 @@ class PeopleController < ApplicationController
   def person_params
     params.require(:person).permit(:name, :length)
   end
-
-  # def current_user
-  #   @current_user = Person.find(params[:id])
-  # end
 
 end
 
