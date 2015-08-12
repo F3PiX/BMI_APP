@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 #MEMO temp out while learning basic testing
+#MEMO Selenium not running in Chrome
+
 # feature 'People' do
 #   scenario 'create a person' do
 #     visit '/people'
