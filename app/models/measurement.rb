@@ -3,7 +3,7 @@ class Measurement < ActiveRecord::Base
   scope :descending, -> { order(date: :desc) }
 
   validates :date, presence: true #default: Date.today, automatically set by date_helper thingy in view
-  validates :weight, presence: true
+  validates :weight, presence: true, numericality: { :greater_than => 40, :less_than => 150 }
 
   #memo bmi = weight (k) / length^2 (m)
 
