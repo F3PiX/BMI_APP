@@ -3,13 +3,28 @@
 <div class="container">
 
 <%= form_for @person do |f| %>
-    <%= f.label :name, "What's your name?" %>
-    <%= f.text_field :name, placeholder: "Pietje Precies" %><br />
-      <p></p>
+
+      <% if @person.errors.any? %>
+          <h3>Oops!</h3>
+          <% @person.errors.full_messages.each do | e | %>
+              <ul>
+                <li><%= e %></li>
+              </ul>
+          <% end %>
+          <h3> Want to try again? </h3>
+      <% end %>
+    <p><%= f.label :name, "What's your name?" %>
+    <%= f.text_field :name, placeholder: "Pietje Precies" %></p>
+      <p>
     <%= f.label :height, "What is your height?" %>
-    <%= f.text_field :height, placeholder: "1.75 m" %>m<br />
-      <p></p>
+    <%= f.text_field :height, placeholder: "1.75 m" %>
+      </p>
+      <p>
     <%= f.submit "That's all", class: 'btn btn-warning' %>
+      </p>
+      <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+  <% end -%>
 <% end %>
   <%= link_to "I don't want this", people_path, {class: 'btn btn-default'} %>
 </div>

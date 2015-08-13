@@ -1,10 +1,21 @@
 <h1>Add your weight</h1>
 
 <%= form_for ([current_user, current_user.measurements.build]) do | f | %>
+    <div class="has-error">
+    <% if @measurement.errors.any? %>
+        <h3>Oops!</h3>
+        <% @measurement.errors.full_messages.each do | e | %>
+            <ul>
+              <li><%= e %></li>
+            </ul>
+        <% end %>
+        <h3> Want to try again? </h3>
+    <% end %>
+    </div>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <%= f.label :weight%>:
-    <%= f.number_field :weight, step: 5 %>kg<br />
+    <%= f.number_field :weight, step: 5, placeholder: "70.5" %>kg<br />
 
     <%= f.submit %>
 <% end %>

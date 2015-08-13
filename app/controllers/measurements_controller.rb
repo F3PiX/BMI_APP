@@ -7,8 +7,12 @@ class MeasurementsController < ApplicationController
 
   # POST people/1/measurements
   def create
-    @measurement = current_user.measurements.create!(measurement_params)
+    @measurement = current_user.measurements.new(measurement_params)
+    if @measurement.save
     redirect_to person_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
