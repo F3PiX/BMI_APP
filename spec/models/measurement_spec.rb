@@ -43,8 +43,18 @@ describe Measurement do
       date: Date.today )
     measurement.valid?
     expect(measurement.errors[:weight]).to include("A BMI based on this weight is not a reliable measure")
-end
+  end
   it 'belongs to a person'
+  it 'returns bmi based on weight and height' do
+    person = Person.new(
+        name: 'Joop ter Heul',
+        height: 1.80 )
+    measurement = person.measurements.new(
+        weight: 75,
+        date: Date.today )
+    expect(measurement.bmi_calc).not_to eq 23.5
+    expect(measurement.bmi_calc).to eq 23.1
+  end
 end
 
 
