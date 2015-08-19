@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
   validates :name, presence: true
+  validates :height, presence: true
 
   has_many :measurements, dependent: :destroy
 
