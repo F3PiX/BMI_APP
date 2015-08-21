@@ -15,11 +15,13 @@ describe Person do
     person.valid?
     expect(person.errors[:name]).to include("can't be blank")
   end
+
   it 'is invalid without a height' do
     person = build(:person, height: nil)
     person.valid?
     expect(person.errors[:height]).to include("can't be blank")
   end
+
    it 'is invalid with a duplicate name'
    it 'returns a new person'  #???
    # it 'is not a new record' do
