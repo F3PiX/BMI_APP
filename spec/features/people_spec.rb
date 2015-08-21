@@ -11,7 +11,7 @@ feature Person do
       visit '/people'
       expect(page).to have_content "Who are you"
       expect(page).to have_content person.name
-      #QUEsTION
+      #QUESTION
       #in this one, person from background is not recognized:
       #expect(page).to have_content other_person.name
       #but Miep herself is there:
@@ -20,7 +20,17 @@ feature Person do
       expect(page).to have_content "Add your weight"
       #story continues in features/measurements_spec.rb
     end
+    scenario 'who has to search for his name' do
+      person = FactoryGirl.create(:person)
+      her_uncle = Person.create(name: "Oom", height: 1.70)
+      visit '/people'
+      fill_in 'Type your name', with: 'oo'
+      expect(page).to have_content "Joop"
+      expect(page).to have_content "Oom"
+      #story continues in 'who wants to access his data' ^
+    end
   end
+
 
   context 'is a new user' do
     scenario 'who wants to join' do
