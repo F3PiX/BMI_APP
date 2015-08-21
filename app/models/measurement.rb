@@ -5,7 +5,7 @@ class Measurement < ActiveRecord::Base
   validates :date, presence: true #default: Date.today, automatically set by date_helper thingy in view
   validates :weight,
             presence: true,
-            numericality: { greater_than: 39, less_than: 149, :message => "A BMI based on this weight is not a reliable measure" }
+            numericality: { greater_than: 39, less_than: 151, :message => "A BMI based on this weight is not a reliable measure" }
 
   #memo bmi = weight (k) / length^2 (m)
 

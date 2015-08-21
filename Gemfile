@@ -40,9 +40,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', require: !ENV['RM_INFO'] #require parameter is workaround for RubyMine with Rails ~> 4.1
 
-  # RSpec
   gem 'rspec-rails'
-
   gem 'factory_girl_rails'
   gem 'ffaker'
 
@@ -54,5 +52,11 @@ group :development, :test do
 
   gem 'capybara'
   gem 'selenium-webdriver'
+end
+
+group :test do
+
+  gem 'database_cleaner'
+
 end
 

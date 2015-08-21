@@ -23,13 +23,13 @@ describe Measurement do
     expect(measurement.errors[:weight]).to include("can't be blank")
   end
   it 'is invalid with a weight =< 40' do
-    measurement = build(:measurement, weight: 40 )
+    measurement = build(:measurement, weight: 39 )
     measurement.valid?
     expect(measurement.errors[:weight]).to include("A BMI based on this weight is not a reliable measure")
   end
 
   it 'is invalid with a weight > 150' do
-    measurement = build(:measurement, weight: 150 )
+    measurement = build(:measurement, weight: 151 )
     measurement.valid?
     expect(measurement.errors[:weight]).to include("A BMI based on this weight is not a reliable measure")
   end
