@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :person do
-    name "MyString"
-    length (1.65).abs
+    name "Joop ter Heul"
+    height 1.80
   end
 end

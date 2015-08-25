@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :measurement do
-    date "2015-07-23 00:20:14"
-weight 80
-bmi_calc 23
+    association :person
+    date Date.today
+    #with height of 1.80 , bmi = 23.1
+    weight 75
   end
-
 end

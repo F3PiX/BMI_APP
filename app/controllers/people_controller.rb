@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
     @person = Person.new
   end
 
-  #POST /people
+  # POST /people
   def create
     @person = Person.new(person_params)
     if @person.save
