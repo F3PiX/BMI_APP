@@ -10,6 +10,7 @@ class Measurement < ActiveRecord::Base
   #memo bmi = weight (k) / length^2 (m)
 
   #input: measurement(weight)
+  # @return [bmi_calc]
   def bmi_calc
     height = person.height
     bmi_calc = weight / (height**2)

@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Added 2 gems cf http://www.gotealeaf.com/blog/integrating-rails-and-bootstrap-part-1/
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'font-awesome-sass-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -56,8 +57,6 @@ group :development, :test do
 end
 
 group :test do
-
-  gem 'database_cleaner'
 
 end
 
